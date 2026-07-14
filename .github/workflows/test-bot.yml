@@ -30,5 +30,4 @@ jobs:
           EOF
 
       - name: Run Bot
-        run: |
-          timeout 15s python start.py
+        run: timeout 15s python start.py || test $? -eq 124
