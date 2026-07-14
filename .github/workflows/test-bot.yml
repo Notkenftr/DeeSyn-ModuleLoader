@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  safety_check:
+  test-bot:
     runs-on: ubuntu-latest
 
     steps:
@@ -30,4 +30,4 @@ jobs:
           EOF
 
       - name: Run Bot
-        run: timeout 15s python start.py || test $? -eq 124
+        run: timeout 60s python start.py || test $? -eq 124
