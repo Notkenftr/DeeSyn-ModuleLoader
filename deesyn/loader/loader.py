@@ -68,9 +68,9 @@ class Loader:
                 await self.bot.add_cog(module(self.bot))
             except Exception as e:
                 print(e)
-                print(f"Failed to load module: {module}")
+                print(f"Failed to load module: {module.__name__}")
             else:
-                print(f"Loaded module: {module}")
+                print(f"Loaded module: {module.__name__}")
 
     async def start_loader(self,sync=False):
         print("start loader")
