@@ -25,6 +25,12 @@ Install the required dependencies.
 pip install -r requirements.txt
 ```
 
+Or using `uv`:
+
+```bash 
+uv pip install -r requirements.txt
+```
+
 ---
 
 # Configuration
