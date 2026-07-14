@@ -56,13 +56,13 @@ TOKEN=your_discord_bot_token
 Using Python:
 
 ```bash
-python run.py
+python start.py
 ```
 
 Or using `uv`:
 
 ```bash
-uv run run.py
+uv run start.py
 ```
 
 ---
