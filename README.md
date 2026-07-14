@@ -19,6 +19,12 @@ git clone https://github.com/Notkenftr/DeeSyn-ModuleLoader.git
 cd DeeSyn-ModuleLoader
 ```
 
+Install the required dependencies.
+
+```bash
+pip install -r requirements.txt
+```
+
 ---
 
 # Configuration
