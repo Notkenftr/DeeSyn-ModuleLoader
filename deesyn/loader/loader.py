@@ -57,7 +57,7 @@ class Loader:
 
     def append_class(self,_class):
         if _class not in self.modules:
-            if _class != None:
+            if _class is not None:
                 self.modules.append(_class)
 
     async def import_modules(self):
