@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import os.path
 import importlib.util
 from discord.ext import commands
@@ -17,26 +19,38 @@ class Loader:
 
     def get_modules_class(self):
         modules_dir = os.path.join(self.root_dir,'modules')
-        modules = os.listdir(modules_dir)
-        for module in modules:
-            class_name = module
-            module_dir = os.path.join(modules_dir,module)
-            entry_point = os.path.join(module_dir, "entry_point.py")
-            spec = importlib.util.spec_from_file_location(class_name, entry_point)
-            module = importlib.util.module_from_spec(spec)
-            spec.loader.exec_module(module)
+        for module in os.scandir(modules_dir):
 
-            if hasattr(module, "CONFIG"):
-                _class_name = getattr(module, "CONFIG").get("main_class", None)
+            if not module.is_dir():
+                continue
+            module_dir = module.path
+            entry_point = os.path.join(module_dir, "entry_point.py")
+            spec = importlib.util.spec_from_file_location(module.name, entry_point)
+
+            if spec is None or spec.loader is None:
+                continue
+
+            py_module = importlib.util.module_from_spec(spec)
+
+            try:
+                spec.loader.exec_module(py_module)
+            except Exception as e:
+                print(f"Failed to import {module.name}: {e}")
+                continue
+
+            if hasattr(py_module, "CONFIG"):
+                _class_name = getattr(py_module, "CONFIG").get("main_class", None)
                 if _class_name:
-                    _class = getattr(module, _class_name)
+                    _class = getattr(py_module, _class_name)
                     self.modules.append(_class)
 
                     continue
-            if not hasattr(module, str(class_name).capitalize()):
-                print(f"Module: {module} Load Failed, Class not found")
+            default_class = py_module.__name__.capitalize()
+
+            if not hasattr(py_module, default_class):
+                print(f"Module: {py_module} Load Failed, Class not found")
                 continue
-            _class = getattr(module, str(class_name).capitalize())
+            _class = getattr(py_module, default_class)
             self.modules.append(_class)
 
     async def import_modules(self):
@@ -46,13 +60,15 @@ class Loader:
             except Exception as e:
                 print(e)
                 print(f"Failed to load module: {module}")
-                continue
-            finally:
+            else:
                 print(f"Loaded module: {module}")
 
     async def start_loader(self,sync=False):
         print("start loader")
-        print(f"{len(self.modules)} {"modules" if len(self.modules) > 1 else "module"}")
+        print(
+            f"{len(self.modules)} "
+            f"{'modules' if len(self.modules) != 1 else 'module'}"
+        )
         self.get_modules_class()
         await self.import_modules()
         total_cog = None
