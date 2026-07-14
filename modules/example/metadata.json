@@ -1,0 +1,8 @@
+{
+  "module": {
+    "name": "example",
+    "type": "slash_command",
+    "authors": [kenftr],
+    "version": "1.0.0"
+  }
+}
