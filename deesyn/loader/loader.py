@@ -18,6 +18,9 @@ class Loader:
         )
 
     def get_modules_class(self):
+
+        self.modules.clear()
+
         modules_dir = os.path.join(self.root_dir,'modules')
         for module in os.scandir(modules_dir):
 
