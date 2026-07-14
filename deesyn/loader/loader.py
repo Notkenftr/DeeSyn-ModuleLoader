@@ -65,11 +65,11 @@ class Loader:
 
     async def start_loader(self,sync=False):
         print("start loader")
+        self.get_modules_class()
         print(
             f"{len(self.modules)} "
             f"{'modules' if len(self.modules) != 1 else 'module'}"
         )
-        self.get_modules_class()
         await self.import_modules()
         total_cog = None
         if sync:
