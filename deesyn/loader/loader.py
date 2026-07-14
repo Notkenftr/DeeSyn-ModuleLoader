@@ -41,17 +41,19 @@ class Loader:
                 print(f"Failed to import {module.name}: {e}")
                 continue
 
-            if hasattr(py_module, "CONFIG"):
-                _class_name = getattr(py_module, "CONFIG").get("main_class", None)
-                if _class_name:
-                    _class = getattr(py_module, _class_name, None)
-                    self.append_class(_class)
-                    continue
+            config = getattr(py_module, "CONFIG", {})
+            _class_name = config.get("main_class")
+            if _class_name:
+                _class = getattr(py_module, _class_name, None)
+                self.append_class(_class)
+                continue
 
             default_class = py_module.__name__.capitalize()
-            if not hasattr(py_module, default_class):
-                print(f"Module: {py_module} Load Failed, Class not found")
+            _class = getattr(py_module, default_class, None)
+            if _class is None:
+                print(f"Module: {py_module.__name__} Load Failed, Class not found")
                 continue
+
             _class = getattr(py_module, default_class, None)
             self.append_class(_class)
 
