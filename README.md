@@ -185,3 +185,14 @@ Once your module is placed inside the `modules/` directory, **DeeSyn Module Load
 - Synchronize application commands when needed
 
 No additional registration or manual loading is required.
+
+
+## Star History
+
+<a href="https://www.star-history.com/?repos=Notkenftr%2FDeeSyn-ModuleLoader&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=Notkenftr/DeeSyn-ModuleLoader&type=date&theme=dark&legend=top-left&sealed_token=M96nC3Zoqm4zU7D7AlIwzw9jgFcv66mHpts_JADfQnAifEf8VKqfkn3j4VTQi3uDsrrPhYg_nHrnxycjQ22MVGTKwarJ1Fgj9nf2wyAuhk8UAw5GJBl2SyjQd9bow9LeIIGUjTDiOWtfeWleYuQyvh3tBqhHx1RVRbiJrkjO6Nztqo-6df_wSxpWok5w" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=Notkenftr/DeeSyn-ModuleLoader&type=date&legend=top-left&sealed_token=M96nC3Zoqm4zU7D7AlIwzw9jgFcv66mHpts_JADfQnAifEf8VKqfkn3j4VTQi3uDsrrPhYg_nHrnxycjQ22MVGTKwarJ1Fgj9nf2wyAuhk8UAw5GJBl2SyjQd9bow9LeIIGUjTDiOWtfeWleYuQyvh3tBqhHx1RVRbiJrkjO6Nztqo-6df_wSxpWok5w" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=Notkenftr/DeeSyn-ModuleLoader&type=date&legend=top-left&sealed_token=M96nC3Zoqm4zU7D7AlIwzw9jgFcv66mHpts_JADfQnAifEf8VKqfkn3j4VTQi3uDsrrPhYg_nHrnxycjQ22MVGTKwarJ1Fgj9nf2wyAuhk8UAw5GJBl2SyjQd9bow9LeIIGUjTDiOWtfeWleYuQyvh3tBqhHx1RVRbiJrkjO6Nztqo-6df_wSxpWok5w" />
+ </picture>
+</a>
