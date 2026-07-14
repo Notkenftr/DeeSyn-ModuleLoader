@@ -10,6 +10,12 @@
 
 ---
 
+# Loader
+
+![Header](./assets/docs/loader_workflow.png)
+
+---
+
 # Installation
 
 Clone the repository and navigate into the project directory.
