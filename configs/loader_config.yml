@@ -1,9 +1,0 @@
-single_thread:
-  enable: true
-  async: false
-
-multi_thread:
-  enable: false
-  async: false
-  threads: auto
-  max_batch: 4
